@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script type="text/javascript" src="../make.php"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            $('button').click(function () {
+                xJax().target({
+                    url: 'newhtml.html', success: function (e) {
+                        alert(this.getAllResponseHeaders());
+                        alert(this.getResponseHeader('server'));
+                        alert(this.headers().Server);
+                    }
+                }, $('div'));
+            })
+        });
+    </script>
+</head>
+<body>
+    <button>Click me</button>
+    <div style="border: solid 1px blue; width: 500px;height: 500px;">
+
+        Target here;
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,77 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head>
+        <title>Drag and drop</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <style>
+            div#testElement {
+                height: 100px;
+                background-color: black;
+                width: 200px;
+                z-index: 5;
+                color: white;
+                -webkit-transition-property: background-color;
+                -webkit-transition-duration: 250ms;
+                -moz-transition-property: background-color;
+                -moz-transition-duration: 250ms;
+                -ms-transition-property: background-color;
+                -ms-transition-duration: 250ms;
+                -o-transition-property: background-color;
+                -o-transition-duration: 250ms;
+                transition-property: background-color;
+                transition-duration: 250ms;
+            }
+
+        </style>
+
+        <script>
+
+            var testEl,
+            active = false,
+            index = 0,
+            colors = ['red','orange','yellow','green','blue','indigo','violet'];
+
+            window.onload = function () {
+                testEl = $('testElement');
+               document.body.addEventListener('touchmove', function () {
+                    if (!active) {
+                        changeColor();
+                        active = true;
+                    }
+                    return false;
+                });
+            }
+
+            function changeColor() {
+                testEl.style.backgroundColor = colors[index];
+                index += 1;
+                if (index >= colors.length) {
+                    index = 0;
+                }
+                setTimeout(function() {
+                    active = false;
+                },250);
+            }
+
+            function $(id) {
+                return document.getElementById(id);
+            }
+
+
+        </script>
+    </head>
+
+    <body>
+
+        <div id="testElement">
+            Move your touch over me
+        </div>
+
+        <p>Start on the test element. Move your finger, and the color changes. Now move your finger <em>outside</em> the element, and the color continues changing, as long as you started on the element.</p>
+
+        <p>This effect uses a touchmove event.</p>
+
+    </body>
+</html>

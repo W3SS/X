@@ -1,0 +1,50 @@
+/* 
+    Document   : pTabs
+    Created on : 2/Out/2012, 12:54:20
+    Author     : Henrique
+    Description:
+        Tabs Content element
+*/
+
+div.pTab{
+    border: solid 1px #ccc;
+    background: #efefef;
+}
+
+div.pTab > ul.pTabTitleBar{
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 26px;
+    font-size: 12px;
+    list-style: none;
+    border-bottom: solid 1px #ccc;
+}
+
+div.pTab > ul.pTabTitleBar li a{
+    font-size: 12px;
+    font-family: Verdana;
+    padding: 6px 10px;
+    display: block;
+}
+div.pTab > ul.pTabTitleBar li a:hover{
+    background: #FEFEFE;
+}
+div.pTab > ul.pTabTitleBar li.active a{
+    background: #FEFEFE;
+    border-bottom: solid 1px #FEFEFE;
+}
+div.pTab > ul.pTabTitleBar li{
+    float: left;
+    border-right: solid 1px #ccc;
+}
+div.pTab > div{
+    padding: 10px;
+    font-size: 11px;
+    display: none;
+    background: #FEFEFE;
+}
+div.pTab div.active{
+    display: block;
+}

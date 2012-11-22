@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta name="viewport" content="width=device-width">
+        <script type="text/javascript" src="../make.php"></script>
+
+        <style type="text/css">
+            body{
+                margin: 0px;
+            }
+            div{
+                display: block;
+            }
+            #myID, .request,.result{
+                width: 250px;
+                height: 250px;
+                /*                float: left;*/
+                margin: 10px;
+                background: #fff;
+                border: solid 1px #ccc;
+                font-family: Verdana;
+                font-size: 10px;
+                text-align: center;
+                /*                vertical-align: central;*/
+                display: table-cell;
+            }
+            .request.active{
+                border-color: blue;
+            }
+            .result{
+                float: bottom;
+            }
+            #myid{
+                width: 150px;
+                height: auto;
+                cursor: move;
+                background: #eee;
+                font-size: 9px;
+                padding: 80px 0;
+                position: absolute;
+                left: 0px;
+                top: 80%
+            }
+
+        </style>
+        <script type="text/javascript">
+
+            xLib(
+            function(){
+                xLib('#myid').drag(
+                {
+                    target:$('div.request'),
+                    dropTarget:function(target){
+                        this.innerHTML='Droped Inside of '+target.html();
+                        $('div.request').removeClass('active');
+                        target.addClass('active');
+
+                        if(target.isClass('json')){
+                            xLib('.result').html('Json Request type<br/>');
+                            xJax().json({url:'test.json',success:function(data){
+                                    $('.result').append(this.responseText);
+                                    alert('The name propertie '+data.name);
+                                }});
+                        }
+                        if(target.isClass('html')){
+                            xLib('.result').html('Html Request type<br/>');
+                            xJax().html({url:'newhtml.html',success:function(data){
+                                    //                                           alert(data);
+                                    alert(this.responseText);
+                                    data.filter('div').each(function(){
+                                        alert(this.innerText)
+                                    })
+                                }});
+                        }
+                        if(target.isClass('text')){
+                            xLib('.result').html('Text Request type<br/>');
+                            xJax().request({url:'newhtml.html',success:function(data){
+                                    alert('The name propertie '+data);
+                                }});
+                        }
+                    },
+                    drop:function(){
+                        $('div.request').removeClass('active');
+                        this.innerHTML="Drop on the request type";
+                    },
+                    bounds:[
+                        [0,0]
+                    ]
+                }
+            );
+
+            }
+        );
+
+
+        </script>
+    </head>
+    <body>
+
+        <div id="myid" >
+            Drop on the request type
+        </div>
+        <div class="request json">
+            Json
+        </div>
+        <div class="request html">
+            Html
+        </div>
+        <div class="request text">
+            Text
+        </div>
+        <div class="result">
+            Result:
+        </div>
+    </body>
+</html>

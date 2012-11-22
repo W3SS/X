@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+        <meta name="viewport" content="width=device-width">
+        <title></title>
+        <script type="text/javascript" src="../make.php"></script>
+        <script type="text/javascript">
+            try{
+                xLib(
+                function(){
+                    var myDiv=xLib('#myID').css({'position':'absolute',top:'250px'}),img;
+                      
+                    $('div').css({width:'250px',height:'250px',border:'solid 1px #00f'});
+                 
+                    myDiv.drag(
+                    {
+                        target:$('div:eq(1)'),
+                        targetBounds:false,
+                        dropTarget:function(){
+                            this.innerHTML='Droped Inside';  
+                        },
+                        drag:
+                            function(){
+                            _left =  $(this).left();  
+                            _top = $(this).top();  
+                        },
+                        //                        dragging:function(x,y,ox,oy,evt){
+                        //                            this.innerHTML='My position X: '+x+' Y:'+y;
+                        //                        },
+                        drop:
+                            function(){
+                            //                                xFx.stop(this.style);
+                            this.innerHTML='Droped Out Side';
+                             $(this).stop().animate({left:parseInt(_left),top:parseInt(_top),time:.2});
+                        },
+                        bounds:[
+                            [0,0],
+                            [900,900]
+                        ]
+                    }
+                );
+                    //                myDiv.css('border','solid 1px blue').animate({width:100,height:50});
+                    //                        img=new Image();
+                    //                        xLib(img).addEvent('load',function(e){
+                    //                            xLib('body div').eq(0).append(img);
+                    //                            xFx.animate(myDiv,{
+                    //                                width:200,
+                    //                                height:200,
+                    //                                time:.5
+                    //                            },true);
+                    //                        });
+                    //                        img.src="https://developer.mozilla.org/skins/mdn/Transitional/img/mdn-logo-sm.png";
+                }
+            );
+            }catch(e){
+             
+                alert(e);
+            }
+   
+        </script>
+    </head>
+    <body style="margin: 0px;padding: 0px;">
+        <div id="myID" title="test tests" style="width:10px;height: 10px;">
+            Div 1
+        </div>
+        <div title="test tests" style="width:10px;height: 10px;">
+            Div 2
+        </div>
+    </body>
+</html>

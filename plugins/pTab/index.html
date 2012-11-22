@@ -1,0 +1,79 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script type="text/javascript" src="../../make.php"></script>
+        <script type="text/javascript" src="pTabs.js"></script>
+        <link href="pTabs.css" rel="stylesheet" media="all"/>
+        <script type="text/javascript">
+            $(function(){
+                $('.pTab').pTabs();
+            })    
+        </script>
+    </head>
+    <body>
+        <form method="get">
+
+            <div class="pTab">
+                <ul class="pTabTitleBar">
+                    <li class="active">
+                        <a href="#">Title1</a>
+                    </li>
+                    <li>
+                        <a href="#">Title2</a>
+                    </li>
+                    <li>
+                        <a href="#">Title3</a>
+                    </li>
+                    <li>
+                        <a href="#">Title4</a>
+                    </li>
+                    <li data-tab="test.html">
+                        <a href="#">Title5</a>
+                    </li>
+                </ul>
+                <div class="active">
+                    Content 1 Name <input type="text" name="name"><br/>
+                    Content 1Content 1Content 1Content 1<br/>
+                    Content 1Content 1Content 1Content 1<br/>
+                    Content 1Content 1Content 1Content 1<br/>
+                    Content 1Content 1Content 1Content 1<br/>
+                    Content 1Content 1Content 1Content 1<br/>
+                </div>
+                <div>
+                    Content 2 Tel <input type="text" name="Tel"><br/>
+                    Content 2Content 2Content 2Content 2<br/>
+                    Content 2Content 2Content 2Content 2<br/>
+                    Content 2Content 2Content 2Content 2<br/>
+                    Content 2Content 2Content 2Content 2<br/>
+                    Content 2Content 2Content 2Content 2<br/>
+                </div>
+                <div>
+                    Content 3Content 3Content 3Content 3<br/>
+                    Content 3Content 3Content 3Content 3<br/>
+                    Content 3Content 3Content 3Content 3<br/>
+                    Content 3Content 3Content 3Content 3<br/>
+                    Content 3Content 3Content 3Content 3<br/>
+                    Content 3Content 3Content 3Content 3<br/>
+                </div>
+                <div>
+                    Content 4Content 4Content 4Content 4<br/>
+                    Content 4Content 4Content 4Content 4<br/>
+                    Content 4Content 4Content 4Content 4<br/>
+                    Content 4Content 4Content 4Content 4<br/>
+                    Content 4Content 4Content 4Content 4<br/>
+                    Content 4Content 4Content 4Content 4<br/>
+                </div>
+                <div>
+                    Loading...
+                </div>
+            </div>
+            <input type="submit">
+        </form>
+    </body>
+</html>

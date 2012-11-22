@@ -1,0 +1,42 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="../../make.php"></script>
+        <link rel="stylesheet" media="all" href="slide.css"/>
+        <link rel="stylesheet" media="all" href="themes/boxModel.css"/>
+        <script src="slide.js"></script>
+        <script>
+            $(function(){
+                $('.SlideMe').xSlideShow({effectTransition:'linear',viewPort:[618,246]}); 
+            });
+        </script>
+    </head>
+    <body>
+        <div class="SlideMe boxModel xSlideShow">
+            <ul>
+                <li>
+                    <p>Nemo <a href="#">Ho</a> Yes!!!</p>
+                    <img src="images/nemo.jpg"/>
+                </li>    
+                <li>
+                    <p>Toy Store Ho Yes!!!</p>
+                    <img src="images/toystory.jpg"/>
+                </li>    
+                <li>
+                    <p>UP Ho Yes!!!</p>
+                    <img src="images/up.jpg"/>
+                </li>    
+                <li>
+                    <p>Walle Ho Yes!!!</p>
+                    <img src="images/walle.jpg"/>
+                </li>    
+            </ul>
+        </div>
+    </body>
+</html>
